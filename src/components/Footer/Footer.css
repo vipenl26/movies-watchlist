@@ -9,7 +9,7 @@
 
 .footerHolder {
   display: flex;
-  background: #333;
+  /* background: #333; */
   justify-content: flex-end;
   align-items: flex-end;
   min-height: 30vh;

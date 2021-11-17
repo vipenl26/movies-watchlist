@@ -5,7 +5,7 @@ function MovieCard(props) {
     <div className="col">
       <div className="card text-white" style={{width: "18rem",background:"rgb(255,163,26)"}}>
         <img
-          src={props.link}
+          src={props.img_link}
           className="card-img-top"
           alt="..."
         />

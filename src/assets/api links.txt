@@ -1,0 +1,5 @@
+https://www.omdbapi.com/
+
+https://www.traileraddict.com/trailerapi
+
+https://rapidapi.com/meteoric-llc-meteoric-llc-default/api/watchmode/
