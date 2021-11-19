@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import MyNav from "./components/Navbar/MyNav";
 import MovieContainer from "./components/MovieContainer";
 import Footer from "./components/Footer/Footer";
@@ -13,13 +13,14 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem("liked", JSON.stringify([]));
   }, []);
+  
   return (
     <div className="App">
       <BrowserRouter>
         <MyNav />
         <Routes>
           <Route
-            path="/"
+            path="/movies-watchlist/browse"
             element={
               <>
                 <MovieContainer
@@ -35,7 +36,7 @@ const App = () => {
           />
           <Route
             exact
-            path="/watch-list"
+            path="/movies-watchlist/watch-list"
             element={<MovieWatchListContainer />}
           />
         </Routes>

@@ -11,7 +11,7 @@ const MovieWatchListContainer = () => {
   });
   if (mlist.length == 0) {
     mlist.push([
-      <h3 style={{marginBottom:"40%"}}>
+      <h3 style={{marginBottom:"40%", color:"rgb(255,163,26)"}}>
         Click on{" "}
         <button type="button" class="btn btn-outline-danger">
           <svg
