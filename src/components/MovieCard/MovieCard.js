@@ -1,23 +1,35 @@
 import React from "react";
-import './MovieCard'
+import { Link } from "react-router-dom";
+import "./MovieCard";
+const setData = (movie_id,setPopData)=>{
+  const raw_data =  JSON.parse(localStorage.getItem("results"))
+  const data = raw_data["results"]
+
+  for(let i=0;i<data.length;i++){
+    if(data[i].id === movie_id){
+      setPopData(data[i]);
+      return;
+    }
+  }
+}
+
 function MovieCard(props) {
   return (
     <div className="col">
-      <div className="card text-white" style={{width: "18rem",background:"rgb(255,163,26)"}}>
-        <img
-          src={props.img_link}
-          className="card-img-top"
-          alt="..."
-        />
+      <div
+        className="card text-white"
+        style={{ width: "18rem", background: "rgb(255,163,26)" }}
+      >
+        <img src={props.img_link} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">{props.title}</h5>
-          <p className="card-text">
-            {props.overview}
-          </p>
+          <p className="card-text">{props.overview}</p>
           <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button className="btn btn-secondary me-md-2" type="button">
-              Read More
-            </button>
+            <Link to="/pop-card">
+              <button className="btn btn-secondary me-md-2" type="button" onClick={()=>setData(props.movie_id,props.setPopData)}>
+                Read More
+              </button> 
+            </Link>
             <button className="btn btn-danger" type="button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -1,0 +1,16 @@
+#ph{
+    color: #fff;
+  font-size: 20px;
+  display: inline-block;
+}
+#hub{
+  background-color: orange;
+  color: #000;
+  padding: 6px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.mynav img{
+    height: 360px;
+}
