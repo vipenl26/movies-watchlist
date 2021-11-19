@@ -37,7 +37,7 @@ const App = () => {
           <Route
             exact
             path="/watch-list"
-            element={<MovieWatchListContainer />}
+            element={<MovieWatchListContainer setPopData={setPopData} />}
           />
         </Routes>
 

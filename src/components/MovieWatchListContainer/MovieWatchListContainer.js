@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import MovieCard from "../MovieCard/MovieCard";
-const MovieWatchListContainer = () => {
+const MovieWatchListContainer = (props) => {
   const [likedList, setLikedList] = useState([]);
   useEffect(() => {
     const likedArray = JSON.parse(localStorage.getItem("liked"));
     setLikedList(likedArray);
   }, []);
   const mlist = likedList.map((px) => {
-    return <MovieCard key={px.id} data={px} liked />;
+    return <MovieCard key={px.id} data={px} setPopData = {props.setPopData} liked />;
   });
   if (mlist.length == 0) {
     mlist.push([
