@@ -19,12 +19,11 @@ const MovieContainer = (props) => {
   const [state, setState] = useState({ count: 0, mlist: []});
   const [likedSet,setLikedSet] = useState(new Set())
   useEffect(()=>{
+
     const likedArray = JSON.parse(localStorage.getItem("liked"))
-    for(let i=0;i<likedArray.length;i++){
+    for(let i=0;likedArray!==null && i<likedArray.length;i++){
       likedSet.add(likedArray[i].id)
     }
-    console.log(likedArray);
-    console.log("movie container mount")
   },[props.currentPage])
   // poster path
   //https://image.tmdb.org/t/p/w500/1BIoJGKbXjdFDAqUEiA2VHqkK1Z.jpg
