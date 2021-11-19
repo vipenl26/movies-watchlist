@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./PopMovieCard.css";
 
 const backdrop_link =  (link)=>`
@@ -69,9 +68,7 @@ const PopMovieCard = (props) => {
           <style>
             {backdrop_link("https://image.tmdb.org/t/p/w500"+props.data.backdrop_path)}
         </style>
-          <Link to="/">
-          <button type="button" className="btn-close btn-close-white pop-close-button" aria-label="Close"/>
-          </Link>
+          <button type="button" className="btn-close btn-close-white pop-close-button" aria-label="Close" onClick={()=>props.setPopData(false)}/>
             <div className="details">
               <div className="title1">{props.data.original_title.slice(0,25)}</div>
 

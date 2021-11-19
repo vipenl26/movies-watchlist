@@ -1,31 +1,51 @@
 import "./App.css";
-import { useState,useEffect } from "react";
-import { BrowserRouter,Routes,Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyNav from "./components/Navbar/MyNav";
 import MovieContainer from "./components/MovieContainer";
 import Footer from "./components/Footer/Footer";
 import PopMovieCard from "./components/PopMovieCard/PopMovieCard";
 import Pagination from "./components/Pagination/Pagination";
+import MovieWatchListContainer from "./components/MovieWatchListContainer/MovieWatchListContainer";
 const App = () => {
-  const [popData, setPopData] = useState({});
+  const [popData, setPopData] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  useEffect(()=>{
-    localStorage.setItem("liked",JSON.stringify([]));
-  },[])
+  useEffect(() => {
+    localStorage.setItem("liked", JSON.stringify([]));
+  }, []);
   return (
     <div className="App">
       <BrowserRouter>
-      <MyNav/>
-      <MovieContainer setPopData={setPopData} currentPage={currentPage}/>
-      <Routes>
-        <Route exact path="/pop-card" element={<PopMovieCard data={popData}/>}/>
-      </Routes>
-      <Pagination setCurrentPage={setCurrentPage} currentPage={currentPage}/>
-      <Footer/>
-    
+        <MyNav />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <MovieContainer
+                  setPopData={setPopData}
+                  currentPage={currentPage}
+                />
+                <Pagination
+                  setCurrentPage={setCurrentPage}
+                  currentPage={currentPage}
+                />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/watch-list"
+            element={<MovieWatchListContainer />}
+          />
+        </Routes>
+
+        {/* <Route path="/pop-card" element={<PopMovieCard data={popData}/>}/> */}
+        {popData && <PopMovieCard data={popData} setPopData={setPopData}/>}
+        <Footer />
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;

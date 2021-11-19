@@ -2,17 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./MovieCard";
-const setData = (movie_id, setPopData) => {
-  const raw_data = JSON.parse(localStorage.getItem("results"));
-  const data = raw_data["results"];
-
-  for (let i = 0; i < data.length; i++) {
-    if (data[i].id === movie_id) {
-      setPopData(data[i]);
-      return;
-    }
-  }
-};
 
 const likeButton = (func)=>{
   return (
@@ -49,20 +38,19 @@ const likeButtonActivate = (func)=>{
             </button>
   );
 }
-const likeButtonSwitch = (liked,setLiked,movie_id)=>{
+const likeButtonSwitch = (liked,setLiked,movieData)=>{
   if(liked){
     return likeButtonActivate(()=>{
       setLiked(false)
       let ls = JSON.parse(localStorage.getItem("liked"))
-      ls = ls.filter((item)=>item!==movie_id)
+      ls = ls.filter((item)=>item.id!==movieData.id)
       localStorage.setItem("liked",JSON.stringify(ls))
     })
   }
   return likeButton(()=>{
     setLiked(true)
     let ls = JSON.parse(localStorage.getItem("liked"))
-    ls.push(movie_id)
-    console.log(movie_id)
+    ls.push(movieData)
     localStorage.setItem("liked",JSON.stringify(ls))
   
   })
@@ -77,21 +65,19 @@ const MovieCard=(props)=> {
         className="card text-white"
         style={{ width: "18rem", background: "rgb(255,163,26)" }}
       >
-        <img src={props.img_link} className="card-img-top" alt="..." />
+        <img src={"https://image.tmdb.org/t/p/w500" + props.data.poster_path} className="card-img-top" alt="..." />
         <div className="card-body">
-          <h5 className="card-title">{props.title}</h5>
-          <p className="card-text">{props.overview}</p>
+          <h5 className="card-title">{props.data.original_title}</h5>
+          <p className="card-text">{props.data.overview.slice(0,50)+"..."}</p>
           <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-            <Link to="/pop-card">
               <button
                 className="btn btn-secondary me-md-2"
                 type="button"
-                onClick={() => setData(props.movie_id, props.setPopData)}
+                onClick={() => props.setPopData(props.data)}
               >
                 Read More
               </button>
-            </Link>
-            {likeButtonSwitch(liked,setLiked,props.movie_id)}
+            {likeButtonSwitch(liked,setLiked,props.data)}
             
           </div>
         </div>

@@ -21,7 +21,7 @@ const MovieContainer = (props) => {
   useEffect(()=>{
     const likedArray = JSON.parse(localStorage.getItem("liked"))
     for(let i=0;i<likedArray.length;i++){
-      likedSet.add(likedArray[i])
+      likedSet.add(likedArray[i].id)
     }
     console.log(likedArray);
     console.log("movie container mount")
@@ -42,11 +42,7 @@ const MovieContainer = (props) => {
             <MovieCard
               key={px.id}
               data={px}
-              movie_id={px.id}
-              title={px.original_title}
               liked={likedSet.has(px.id)}
-              img_link={"https://image.tmdb.org/t/p/w500" + px.poster_path}
-              overview={px.overview.slice(0,50)+"..."}
               setPopData = {props.setPopData}
             />
           );
