@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./Pagination.css";
 
-const numberOfPages = 25;
+const numberOfPages = 35;
 const Pagination = (props) => {
   const page_list = [
     <li class="page-item">

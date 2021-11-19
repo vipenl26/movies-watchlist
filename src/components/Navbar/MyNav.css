@@ -10,6 +10,9 @@
   border-radius: 5px;
   display: inline-block;
 }
+.nav-active{
+  color:#ffa31a
+}
 
 .mynav img{
     height: 360px;

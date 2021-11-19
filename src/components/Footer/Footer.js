@@ -10,28 +10,28 @@ function Footer() {
           <div className="wave" id="wave3"></div>
           <div className="wave" id="wave4"></div>
           <ul class="social-icon">
-            <li className="social-icon__item">
+            {/* <li className="social-icon__item">
               <a className="social-icon__link" href="#">
                 <ion-icon name="logo-facebook"></ion-icon>
               </a>
-            </li>
+            </li> */}
             <li className="social-icon__item">
-              <a className="social-icon__link" href="#">
+              <a className="social-icon__link" target="_blank" href="https://twitter.com/vipenl26">
                 <ion-icon name="logo-twitter"></ion-icon>
               </a>
             </li>
             <li className="social-icon__item">
-              <a className="social-icon__link" href="#">
+              <a className="social-icon__link" target="_blank" href="https://www.linkedin.com/in/vipen-loka-75291b124/">
                 <ion-icon name="logo-linkedin"></ion-icon>
               </a>
             </li>
             <li className="social-icon__item">
-              <a className="social-icon__link" href="#">
+              <a className="social-icon__link" target="_blank" href="https://www.instagram.com/vipenl26/">
                 <ion-icon name="logo-instagram"></ion-icon>
               </a>
             </li>
           </ul>
-          <ul className="menu">
+          {/* <ul className="menu">
             <li className="menu__item">
               <a className="menu__link" href="#">
                 Home
@@ -57,7 +57,7 @@ function Footer() {
                 Contact
               </a>
             </li>
-          </ul>
+          </ul> */}
           <p>&copy;2021 vipenl26 | All Rights Reserved</p>
         </div>
       </footer>
