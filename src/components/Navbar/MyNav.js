@@ -5,7 +5,7 @@ function MyNav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark mynav">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/movies-watchlist/browse">
+        <Link className="navbar-brand" to="/movies-watchlist">
           <div id="ph">
             Watch&ensp;
             <div id="hub">Box</div>
@@ -31,7 +31,7 @@ function MyNav() {
                 activeClassName="nav-link"
                 aria-current="page"
                 // style={{ color: "#ffa31a" }}
-                to="/movies-watchlist/browse"
+                to="/movies-watchlist"
               >
                 Browse
               </NavLink>
@@ -40,7 +40,7 @@ function MyNav() {
               <NavLink
                 className="nav-link"
                 activeClassName="nav-link"
-                to="/movies-watchlist/watch-list"
+                to="/watch-list"
               >
                 Watch-List
               </NavLink>

@@ -20,7 +20,7 @@ const App = () => {
         <MyNav />
         <Routes>
           <Route
-            path="/movies-watchlist/browse"
+            path="/movies-watchlist"
             element={
               <>
                 <MovieContainer
@@ -36,7 +36,7 @@ const App = () => {
           />
           <Route
             exact
-            path="/movies-watchlist/watch-list"
+            path="/watch-list"
             element={<MovieWatchListContainer />}
           />
         </Routes>
