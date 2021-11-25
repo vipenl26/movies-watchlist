@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import MovieCard from "./MovieCard/MovieCard";
-// import { MovieDetails } from "../shared/MovieDetails";
 
 async function getDataFromApi(pageLink) {
   try {
@@ -59,6 +58,7 @@ const MovieContainer = (props) => {
       .catch((err) => {
         console.log(err);
       });
+      window.scrollTo(0,0);
   }, [props.currentPage]);
 
   return (

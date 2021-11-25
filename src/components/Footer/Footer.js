@@ -9,7 +9,7 @@ function Footer() {
           <div className="wave" id="wave2"></div>
           <div className="wave" id="wave3"></div>
           <div className="wave" id="wave4"></div>
-          <ul class="social-icon">
+          <ul className="social-icon">
             {/* <li className="social-icon__item">
               <a className="social-icon__link" href="#">
                 <ion-icon name="logo-facebook"></ion-icon>

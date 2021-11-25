@@ -5,9 +5,9 @@ import "./Pagination.css";
 const numberOfPages = 35;
 const Pagination = (props) => {
   const page_list = [
-    <li class="page-item">
+    <li className="page-item" key="prev">
       <button
-        class="page-link"
+        className="page-link"
         onClick={() => props.setCurrentPage((c) => Math.max(1, c - 1))}
       >
         Previous
@@ -20,9 +20,9 @@ const Pagination = (props) => {
         currentClassStyle=" page-item-current"
     }
     page_list.push(
-      <li class="page-item">
+      <li className="page-item" key={i}>
         <button
-          class={"page-link"+currentClassStyle}
+          className={"page-link"+currentClassStyle}
           onClick={() => {
             props.setCurrentPage(i);
             console.log(i);
@@ -34,9 +34,9 @@ const Pagination = (props) => {
     );
   }
   page_list.push(
-    <li class="page-item">
+    <li className="page-item" key="next">
       <button
-        class="page-link"
+        className="page-link"
         onClick={() => props.setCurrentPage((c) => Math.min(1000, c + 1))}
       >
         Next
@@ -44,7 +44,7 @@ const Pagination = (props) => {
     </li>
   );
   return (
-    <ul class="pagination justify-content-center page-button-bar">
+    <ul className="pagination justify-content-center page-button-bar">
       {page_list}
     </ul>
   );

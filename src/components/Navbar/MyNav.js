@@ -28,7 +28,7 @@ function MyNav() {
             <li className="nav-item">
               <NavLink
                 className="nav-link"
-                activeClassName="nav-link"
+                activeclassname="nav-link"
                 aria-current="page"
                 // style={{ color: "#ffa31a" }}
                 to="/movies-watchlist"
@@ -39,7 +39,7 @@ function MyNav() {
             <li className="nav-item">
               <NavLink
                 className="nav-link"
-                activeClassName="nav-link"
+                activeclassname="nav-link"
                 to="/watch-list"
               >
                 Watch-List
