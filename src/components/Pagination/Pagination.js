@@ -25,7 +25,6 @@ const Pagination = (props) => {
           className={"page-link"+currentClassStyle}
           onClick={() => {
             props.setCurrentPage(i);
-            console.log(i);
           }}
         >
           {i}

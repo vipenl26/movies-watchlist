@@ -47,10 +47,8 @@ const genre = new Map([
 
 const PopMovieCard = (props) => {
     const genres = props.data.genre_ids.map((p)=>{
-        return <span className="tag genre">{genre.get(p)}</span>
+        return <span className="tag genre" key={genre.get(p)}>{genre.get(p)}</span>
     });
-    console.log(props.data.genre_ids)
-    console.log(genres)
   return (
     <div className="pop-movie-card-holder" id="overlay">
         
@@ -73,7 +71,7 @@ const PopMovieCard = (props) => {
               <div className="title1">{props.data.original_title.slice(0,25)}</div>
 
               <div className="title2">{props.data.original_title.slice(25)}</div>
-                <span class="tag avg-rating">Rating {props.data.vote_average}</span>
+                <span className="tag avg-rating">Rating {props.data.vote_average}</span>
               {/* <fieldset className="rating">
                 <input type="radio" id="star5" name="rating" value="5" /><label
                   className="full"

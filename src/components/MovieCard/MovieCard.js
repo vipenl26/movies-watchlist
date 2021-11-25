@@ -30,7 +30,7 @@ const likeButtonActivate = (func)=>{
                 viewBox="0 0 16 16"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
                 ></path>
               </svg>
@@ -41,6 +41,16 @@ const likeButtonSwitch = (liked,setLiked,movieData)=>{
   if(liked){
     return likeButtonActivate(()=>{
       setLiked(false)
+      fetch("http://localhost:3001/watch-list", {
+        method: 'DELETE',
+        body: `{"id":${movieData.id}}`,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .catch((err) => {
+        console.log("backendserver is down")
+      });
       let ls = JSON.parse(localStorage.getItem("liked"))
       ls = ls.filter((item)=>item.id!==movieData.id)
       localStorage.setItem("liked",JSON.stringify(ls))
@@ -48,6 +58,16 @@ const likeButtonSwitch = (liked,setLiked,movieData)=>{
   }
   return likeButton(()=>{
     setLiked(true)
+    fetch("http://localhost:3001/watch-list", {
+        method: 'POST',
+        body: JSON.stringify(movieData),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+    })
+    .catch((err) => {
+      console.log("backendserver is down")
+    });
     let ls = JSON.parse(localStorage.getItem("liked"))
     ls.push(movieData)
     localStorage.setItem("liked",JSON.stringify(ls))
