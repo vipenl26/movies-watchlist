@@ -12,6 +12,16 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(1);
   useEffect(() => {
     localStorage.setItem("liked", JSON.stringify([]));
+    fetch("http://localhost:3001/watch-list")
+    .then((data) => {
+      return data.json();
+    }).then((data) => {
+      const fav = data["favorites"];
+      localStorage.setItem("liked", JSON.stringify(fav));
+    })
+    .catch((err) => {
+      console.log("backend server is offline")
+    });
   }, []);
   
   return (
