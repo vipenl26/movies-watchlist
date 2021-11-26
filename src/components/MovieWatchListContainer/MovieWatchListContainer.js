@@ -7,8 +7,7 @@ const MovieWatchListContainer = (props) => {
     .then((data) => {
       return data.json();
     }).then((data) => {
-      const fav = data["favorites"];
-      localStorage.setItem("liked", JSON.stringify(fav));
+      localStorage.setItem("liked", JSON.stringify(data));
     })
     .catch((err) => {
       console.log("backend server is offline")
