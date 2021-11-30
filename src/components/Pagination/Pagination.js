@@ -43,7 +43,7 @@ const Pagination = (props) => {
     </li>
   );
   return (
-    <ul className="pagination justify-content-center page-button-bar">
+    <ul className="pagination pagination-sm justify-content-center page-button-bar">
       {page_list}
     </ul>
   );

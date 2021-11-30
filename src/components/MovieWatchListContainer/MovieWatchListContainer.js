@@ -43,7 +43,7 @@ const MovieWatchListContainer = (props) => {
   }
   return (
     <div className="container my-4">
-      <div className="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">{mlist}</div>
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xxl-4 g-2 g-lg-3">{mlist}</div>
     </div>
   );
 };

@@ -6,3 +6,12 @@
 .page-button-bar .page-item-current{
     border: solid 2px rgb(255,163,26);
 }
+.pagination{
+    display: flex;
+    flex-wrap: wrap;
+    overflow:hidden;
+}
+.page-item{
+
+    float: left;
+}
